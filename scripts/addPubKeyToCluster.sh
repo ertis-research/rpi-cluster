@@ -24,7 +24,7 @@ pubkey=$(cat $path) 2> /dev/null
 if [ ! -z "$pubkey" ]; then
     for i in $(seq $firstIP 1 $lastIP)
     do
-        ssh ertis@"192.168.49.${i}" "echo ${pubkey}>> .ssh/authorized_keys"
+        ssh -t ertis@"192.168.49.${i}" "echo ${pubkey}>> .ssh/authorized_keys"
     done
 else
     echo "Error: Pub Key not found." >&2; exit 1

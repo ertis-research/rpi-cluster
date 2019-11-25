@@ -1,0 +1,18 @@
+#Command to install the  Hypriot 1.10.1 version with flash:
+
+flash --userdata cluster.yml https://github.com/hypriot/image-builder-rpi/releases/download/v1.10.1/hypriotos-rpi-v1.10.1.img.zip
+
+# To install raspbian little
+flash --userdata cluster.yml https://downloads.raspberrypi.org/raspbian_lite_latest
+
+#To install the 1.11.1 version
+flash --userdata cluster.yml https://github.com/hypriot/image-builder-rpi/releases/download/v1.11.1/hypriotos-rpi-v1.11.1.img.zip 
+
+# To install the version 1.11.3
+flash --userdata cluster.yml https://github.com/hypriot/image-builder-rpi/releases/download/v1.11.3/hypriotos-rpi-v1.11.3.img.zip
+
+# To install the version 1.11.4
+
+flash --userdata cluster.yml https://github.com/hypriot/image-builder-rpi/releases/download/v1.11.4/hypriotos-rpi-v1.11.4.img.zip
+
+# LINK https://github.com/hypriot/flash

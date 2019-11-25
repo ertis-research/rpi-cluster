@@ -1,0 +1,37 @@
+#cloud-config
+
+hostname: ertis25
+manage_etc_hosts: true
+apt_preserve_sources_list: true
+
+users:
+  - name: ertis
+    primary-group: users
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users,docker,adm,dialout,audio,plugdev,netdev,video
+    ssh-import-id: None
+    lock_passwd: true
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMv8ipbSz7GSR1rxqVQ7PBHUANlAcUEl2ehyCDdfpU0xgjW2jtfrre3fa8tIyzYQf90Erjz+UwqGqUlhNsfLyevccl/pNDiTUELYgqkamnB7z/0iLTdfU/fjPlaG3QqzwavjvWH8tY6PSzFtHkNEEhnd58/KhFxueQWvhNiK3+V/gl1v2Zt42svgmQzNgvxcjUhBc9uTXLfKCjXsnnD9K7Hqbflk7h8tKAXiEEFH+6KdkDucB8HhKUqbv2gD2CO46TuCOfg7dMW7xCv4VXg4WZ5I3dPzaPT0LAbe3Nbmp6H+0pR+DbMuj/1g9zF0r0Ouv+ke2W+Yw2nOLCsZKv8KiX cristian@MacBook-Pro-de-Cristian.local
+
+package_upgrade: false
+
+write_files:
+  - content: |
+      persistent
+      # Generate Stable Private IPv6 Addresses instead of hardware based ones
+      slaac private
+
+      # static IP configuration:
+      interface eth0
+      static ip_address=192.168.49.203/23
+      # static ip6_address=fd51:42f8:caae:d92e::ff/64
+      static routers=192.168.49.252
+      static domain_name_servers=192.168.42.3 150.214.40.11
+
+    path: /etc/dhcpcd.conf
+# These commands will be ran once on first boot only
+runcmd:
+  - 'systemctl restart avahi-daemon'
+  - 'sudo ip link set wlan0 down'
