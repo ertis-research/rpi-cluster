@@ -4,7 +4,7 @@
 if [ ! -z "$1" ]; then 
     firstIP=$1
 else
-    firstIP=203 # ertis25
+    firstIP=179 # ertis25
 fi
 
 if [ ! -z "$2" ]; then

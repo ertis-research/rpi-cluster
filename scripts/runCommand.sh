@@ -1,22 +1,22 @@
 #!/bin/bash
 
 # Assign values
-if [ ! -z "$1" ]; then 
-    firstIP=$1
+if [ ! -z "$1" ]; then
+    command=$1
 else
-    firstIP=203 # ertis25
+    command="echo Connected"
 fi
 
-if [ ! -z "$2" ]; then
-    lastIP=$2
+if [ ! -z "$2" ]; then 
+    firstIP=$2
 else
-    lastIP=226 # ertis48
+    firstIP=179 # ertis25
 fi
 
 if [ ! -z "$3" ]; then
-    command=$3
+    lastIP=$3
 else
-    command="echo Connected"
+    lastIP=226 # ertis48
 fi
 
 # Function

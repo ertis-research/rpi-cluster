@@ -1,22 +1,22 @@
 #!/bin/bash
 
 # Assign values
-if [ ! -z "$1" ]; then 
-    firstIP=$1
+if [ ! -z "$1" ]; then # Public key path to add
+    path=$1
+else
+    path="id_rsa.pub"
+fi
+
+if [ ! -z "$2" ]; then 
+    firstIP=$2
 else
     firstIP=179 # ertis1
 fi
 
-if [ ! -z "$2" ]; then
-    lastIP=$2
+if [ ! -z "$3" ]; then
+    lastIP=$3
 else
-    lastIP=202 # ertis24
-fi
-
-if [ ! -z "$3" ]; then # Public key path to add
-    path=$3
-else
-    path="id_rsa.pub"
+    lastIP=226 # ertis48
 fi
 
 # Function
