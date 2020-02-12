@@ -1,6 +1,6 @@
 # FogPi Cluster
 
-The FogPi is an embedded, portable, low-cost and low-power consumption (compared with tradicional Fog servers) Fog computing infrastructure composed by a cluster of 48 Raspberry Pis model 3 B+. FogPi can run Dockers containers and services which are managed and orchestrated through Docker Swarm. The software and hardware components are accessible and are listed below. 3D cases and bases have been designed for FogPi and are available in this [repository](/3D_designs/). 
+The FogPi is an embedded, portable, low-cost and low-power consumption (compared with tradicional Fog servers) Fog computing infrastructure composed by a cluster of 48 Raspberry Pis model 3 B+. FogPi can run Dockers containers and services which are managed and orchestrated through Docker Swarm. The software and hardware components are accessible and are listed below. 3D cases and bases have been designed for FogPi and are available in this [repository](https://github.com/ertis-research/rpi-cluster/tree/master/3D_Designs). 
 
 ![Image of RPI-Cluster](fogpi.jpg)
 
