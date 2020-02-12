@@ -1,0 +1,37 @@
+#cloud-config
+
+hostname: YOUR_HOSTNAME
+manage_etc_hosts: true
+apt_preserve_sources_list: true
+
+users:
+  - name: YOUR_USERNAME
+    primary-group: users
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users,docker,adm,dialout,audio,plugdev,netdev,video
+    ssh-import-id: None
+    lock_passwd: true
+    ssh-authorized-keys:
+      - ssh-rsa YOUR_SSH_KEY
+
+package_upgrade: false
+
+write_files:
+  - content: |
+      persistent
+      # Generate Stable Private IPv6 Addresses instead of hardware based ones
+      slaac private
+
+      # static IP configuration:
+      interface eth0
+      static ip_address=YOUR_IP/23
+      static routers=YOUR_GATEWAY
+      static domain_name_servers=YOUR_NAMESERVER
+
+    path: /etc/dhcpcd.conf
+
+# These commands will be ran once on first boot only
+runcmd:
+  - 'systemctl restart avahi-daemon'
+  - 'sudo ip link set wlan0 down'
